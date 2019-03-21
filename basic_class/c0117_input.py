@@ -1,0 +1,7 @@
+# input1 = input('input str:\n')
+# print('You input \"%s\"' % input1)
+# a=int(input('input a number:\n'))
+# print('You input \"%d\"' % a)
+# a, b = eval(input('input a number:\n'))
+# print('You input %d and %d' % (a, b))
+print(abs(-1.1))
