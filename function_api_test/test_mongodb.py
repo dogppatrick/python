@@ -10,7 +10,8 @@ db = client["test0324"]
 c = db.c1
 # _id not define >> _id auto create
 new_fruit = {"fruit": ["mongo", "melon"],
-             "size": 5}
+             "size": 7}
+# insert
 c.insert_one(new_fruit)
 # c = client["test0324"].c1
 # c.find()  = db.c1.find in mongodb
@@ -19,8 +20,8 @@ for data in c.find():
     # for fruit in fruits:
     #     print(fruit, end="\t")
     print(data)
-    print()
-# insert
+    # print("")
 
+print(c.find_one())
 # new_fruit
 
