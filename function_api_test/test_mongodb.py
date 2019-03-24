@@ -19,7 +19,7 @@ c = db.items
 # f2 = {"fruit": ["apple", "banana"],
 #       "size": 3}
 # fruits = [f1, f2]
-fruits =[]
+fruits = []
 fruit_list = ["apple", "melon", "banana", "orange"]
 for i in range(5):
     fruit_data = {"fruit": fruit_list[random.randint(0, 3)], "size": random.randint(1, 10)}
