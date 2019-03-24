@@ -8,29 +8,32 @@ from bson.objectid import ObjectId
 # client = MongoClient('mongodb://localhost:27017/')
 client = MongoClient()
 # select db create if no db
-db = client["test0324"]
+db = client["fruit"]
 # select collection create in no collection
-c = db.c1
+c = db.items
 # _id not define >> _id auto create
 # new_fruit make a data to insert
-new_fruit = {"fruit": ["mongo", "melon"],
-             "size": 9}
+f1 = {"fruit": ["mongo", "melon"],
+      "size": 9}
+f2 = {"fruit": ["apple", "banana"],
+      "size": 3}
+fruits = [f1, f2]
 # insert
-# c.insert_one(new_fruit)
+# c.insert_one(f1)
 # c.insert_many([{},{}]...) >> insert more than one data
-
+result = c.insert_many(fruits)
 # c = client["test0324"].c1
 # c.find()  = db.c1.find in mongodb
 for data in c.find():
-    fruits = data["fruit"]
+    # fruits = data["fruit"]
     # for fruit in fruits:
     #     print(fruit, end="\t")
     print(data)
 print("===")
 # querying by find({})
-print(c.find_one({"_id": ObjectId('5c971e256e5cc32b50e95b02')}))
+# print(c.find_one({"_id": ObjectId('5c971e256e5cc32b50e95b02')}))
 # collection data count
-print(c.count_documents({"size": 5}))
+print(c.count_documents({"size": 3}))
 # build index
-result = db.profiles.create_index([('_id', pymongo.ASCENDING)], unique=True)
-sorted(list(db.profiles.index_information()))
+# db.items.create_index([('_id', pymongo.ASCENDING)], unique=True)
+# sorted(list(db.itmes.index_information()))
