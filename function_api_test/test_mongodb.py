@@ -1,5 +1,6 @@
 from pymongo import MongoClient
 import pymongo
+import random
 from bson.objectid import ObjectId
 # pymongo tutirial https://api.mongodb.com/python/current/tutorial.html
 # _id need import bson.objectid
@@ -13,11 +14,16 @@ db = client["fruit"]
 c = db.items
 # _id not define >> _id auto create
 # new_fruit make a data to insert
-f1 = {"fruit": ["mongo", "melon"],
-      "size": 9}
-f2 = {"fruit": ["apple", "banana"],
-      "size": 3}
-fruits = [f1, f2]
+# f1 = {"fruit": ["mongo", "melon"],
+#       "size": 9}
+# f2 = {"fruit": ["apple", "banana"],
+#       "size": 3}
+# fruits = [f1, f2]
+fruits =[]
+fruit_list = ["apple", "melon", "banana", "orange"]
+for i in range(5):
+    fruit_data = {"fruit": fruit_list[random.randint(0, 3)], "size": random.randint(1, 10)}
+    fruits.append(fruit_data)
 # insert
 # c.insert_one(f1)
 # c.insert_many([{},{}]...) >> insert more than one data
@@ -37,3 +43,5 @@ print(c.count_documents({"size": 3}))
 # build index
 # db.items.create_index([('_id', pymongo.ASCENDING)], unique=True)
 # sorted(list(db.itmes.index_information()))
+# drop collection
+c.drop()
