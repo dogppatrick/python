@@ -25,11 +25,11 @@ for i in range(5):
     fruit_data = {"fruit": fruit_list[random.randint(0, 3)], "size": random.randint(1, 10)}
     fruits.append(fruit_data)
 # insert
-# c.insert_one(f1)
+# c.insert_one(fruit_data)
 # c.insert_many([{},{}]...) >> insert more than one data
 result = c.insert_many(fruits)
 # c = client["test0324"].c1
-# c.find()  = db.c1.find in mongodb
+# c.find()  = fruit.items.find in mongodb
 for data in c.find():
     # fruits = data["fruit"]
     # for fruit in fruits:
