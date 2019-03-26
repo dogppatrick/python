@@ -6,7 +6,7 @@ import pandas as pd
 warnings.filterwarnings("ignore")
 start_page = 1
 page = start_page
-l_push = 50
+l_push = 10
 b = False
 df = pd.DataFrame(columns=["title", "author", "data", "url"])
 while True:
@@ -25,7 +25,7 @@ while True:
         try:
             a_author = box.find("div", class_="meta").find("div", class_="author").text
             a_date = box.find("div", class_="meta").find("div", class_="date").text
-            if a_date == "11/11" or page-start_page >= 1000:
+            if a_date == " 3/20" or page-start_page >= 100:
                 b = True
             if a_author not in "-":
                 a_title = box.find("div", class_="title").text.strip()
@@ -42,4 +42,4 @@ while True:
         break
 # print(articles[0])
 # print(articles[0].text)
-df.to_csv("gossip_50p_0317_03.csv", encoding="utf-8", index=False)
+df.to_csv("gossip_10p_0326.csv", encoding="utf-8", index=False)

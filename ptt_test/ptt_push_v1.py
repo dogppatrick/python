@@ -7,13 +7,13 @@ import math
 warnings.filterwarnings("ignore")
 # start connect
 # load csv
-gossip_url = pd.read_csv("gossip_50p_0317.csv", sep=",", encoding="utf-8")
+gossip_url = pd.read_csv("gossip_10p_0326.csv", sep=",", encoding="utf-8")
 # for i in range(gossip_url.__len__()):
 data_c = ["uuid", "a_id", "a_data", "p_id", "push_c"]
 # # ['作者', '看板', '標題', '時間', 'url']
 df = pd.DataFrame(columns=data_c)
 
-for i in range(6101, gossip_url.__len__()):
+for i in range(gossip_url.__len__()):
     url = gossip_url.iloc[i, 3]
     # if i % 30 == 0:
     #     print(url, i, "done")
@@ -46,8 +46,8 @@ for i in range(6101, gossip_url.__len__()):
         print(url)
 
     # savefile
-    if i % 50 == 0:
-        df.to_csv("push_data_too_big.csv", encoding="utf-8", index=False, mode="a")
+    if i+1 % 50 == 0:
+        df.to_csv("push_data_0326.csv", encoding="utf-8", index=False, mode="a")
         df = pd.DataFrame(columns=data_c)
         print("data_saved", i, url)
-df.to_csv("push_data_too_big.csv", encoding="utf-8", index=False, mode="a")
+df.to_csv("push_data_0326.csv", encoding="utf-8", index=False, mode="a")
