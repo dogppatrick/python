@@ -124,13 +124,5 @@ class PPModel:
             result_tag = ["大跌", "小跌", "小漲", "大漲"]
         return result_tag[model.predict_classes(self.x)[0]]
 
-d_s = date(2019, 5, 23)
-for i in range(20):
-    d2 = (d_s + timedelta(days=i)).strftime("%Y-%m-%d")
-    print(d2, end="\t")
-    try:
-        p = PPModel("台北", d2, "Rose", 3, 1)
-        print(p.result())
-    except:
-        print("out of date")
-# p.result()
+
+
